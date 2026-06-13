@@ -472,8 +472,8 @@ nav.scrolled{box-shadow:0 2px 40px rgba(242,201,76,0.07)}
 <section class="hero">
   <div class="orb orb-2" aria-hidden="true"></div>
   <div class="hero-bg-photo">
-    <video class="hero-bg-video" autoplay muted loop playsinline>
-      <source src="openart-02178128245153000000000000000000000ffffc0a8bb2014b90a_1781282570753_f5fb1ff5 (1).mp4" type="video/mp4">
+    <video class="hero-bg-video" id="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="openart-02178128245153000000000000000000000ffffc0a8bb2014b90a_1781282570753_f5fb1ff5%20%281%29.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-glare" aria-hidden="true"></div>
@@ -847,6 +847,25 @@ function mainSignup() {
 document.getElementById('main-email').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') mainSignup();
 });
+
+// Hero video: force play on mobile (iOS Safari blocks autoplay until explicitly called)
+(function(){
+  var v = document.getElementById('hero-video');
+  if (!v) return;
+  function tryPlay() { v.play().catch(function(){}); }
+  // Attempt on load
+  tryPlay();
+  // Resume after tab switch or screen lock
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) tryPlay();
+  });
+  // Resume when video element scrolls into view
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) tryPlay();
+    }, {threshold: 0.1}).observe(v);
+  }
+})();
 
 // Mobile nav toggle
 (function(){
