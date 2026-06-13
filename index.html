@@ -433,6 +433,54 @@ nav.scrolled{box-shadow:0 2px 40px rgba(242,201,76,0.07)}
 @media(max-width:1100px){#bp-contour{display:none}}
 @media(prefers-reduced-motion:reduce){#bp-contour{display:none}}
 
+/* === MOBILE CONTOUR SHOWCASE (hidden on desktop) === */
+.mobile-contour-showcase{display:none}
+@media(max-width:1100px){
+  .mobile-contour-showcase{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    overflow:hidden;
+    position:relative;
+    min-height:52vw;
+  }
+  .mcs-product{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1.5rem 0.25rem 1.5rem 0.75rem;
+    animation:float 4s ease-in-out infinite;
+  }
+  .mcs-product img{
+    width:100%;
+    max-width:48vw;
+    mix-blend-mode:screen;
+    display:block;
+    -webkit-user-drag:none;
+    user-select:none;
+  }
+  .mcs-athlete{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:0;
+  }
+  .mcs-athlete video{
+    width:100%;
+    max-width:54vw;
+    mix-blend-mode:screen;
+    display:block;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .mobile-contour-showcase{display:none}
+}
+
 </style>
 </head>
 <body>
@@ -498,6 +546,18 @@ nav.scrolled{box-shadow:0 2px 40px rgba(242,201,76,0.07)}
     </div>
   </div>
 </section>
+
+<!-- MOBILE CONTOUR SHOWCASE -->
+<div class="mobile-contour-showcase" aria-hidden="true">
+  <div class="mcs-product">
+    <img src="ChatGPT%20Image%20Jun%2013%2C%202026%2C%2006_36_33%20PM.png" alt="" draggable="false">
+  </div>
+  <div class="mcs-athlete">
+    <video id="mcs-video" autoplay muted loop playsinline preload="auto">
+      <source src="openart-02178135150390600000000000000000000ffffc0a8a21b924eb1_1781351642914_d6a24c93.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section class="problem-section" id="problem">
@@ -848,22 +908,21 @@ document.getElementById('main-email').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') mainSignup();
 });
 
-// Hero video: force play on mobile (iOS Safari blocks autoplay until explicitly called)
+// Force autoplay on all muted videos (iOS Safari blocks autoplay until explicitly called)
 (function(){
-  var v = document.getElementById('hero-video');
-  if (!v) return;
-  function tryPlay() { v.play().catch(function(){}); }
-  // Attempt on load
-  tryPlay();
-  // Resume after tab switch or screen lock
+  var ids = ['hero-video', 'mcs-video'];
+  var videos = ids.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  function tryPlayAll() { videos.forEach(function(v){ v.play().catch(function(){}); }); }
+  tryPlayAll();
   document.addEventListener('visibilitychange', function(){
-    if (!document.hidden) tryPlay();
+    if (!document.hidden) tryPlayAll();
   });
-  // Resume when video element scrolls into view
   if (window.IntersectionObserver) {
-    new IntersectionObserver(function(entries){
-      if (entries[0].isIntersecting) tryPlay();
-    }, {threshold: 0.1}).observe(v);
+    videos.forEach(function(v){
+      new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting) v.play().catch(function(){});
+      }, {threshold: 0.1}).observe(v);
+    });
   }
 })();
 
