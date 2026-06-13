@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolling Grips — You're In</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--acid:#F2C94C;--bg:#080808;--bg2:#111111;--bg3:#1A1A1A;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.15);--text:#fff;--muted:#777;--dim:#2E2E2E}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden}
+
+.bg-photo{position:fixed;inset:0;background:url('hero.jpeg') center 30% / cover no-repeat;z-index:0}
+.bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,0.97) 0%,rgba(8,8,8,0.9) 60%,rgba(8,8,8,0.78) 100%)}
+
+.page{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+header{padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.14em;color:var(--acid)}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 2rem}
+.card{max-width:560px;width:100%;text-align:center}
+
+/* CHECK ANIMATION */
+.check-wrap{width:72px;height:72px;border-radius:50%;background:rgba(242,201,76,0.1);border:1.5px solid var(--acid);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.check-wrap svg{width:32px;height:32px;stroke:var(--acid);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+.eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--acid);margin-bottom:1rem}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,9vw,5rem);line-height:0.9;letter-spacing:0.04em;margin-bottom:1.5rem}
+h1 em{color:var(--acid);font-style:normal}
+.sub{color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:3rem;max-width:420px;margin-left:auto;margin-right:auto}
+
+/* NEXT STEPS */
+.next-steps{background:var(--bg2);border:1px solid var(--border2);border-radius:2px;padding:2rem;margin-bottom:2.5rem;text-align:left}
+.next-label{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--acid);margin-bottom:1.25rem}
+.next-item{display:flex;gap:1rem;align-items:flex-start;padding:0.9rem 0;border-bottom:1px solid var(--border)}
+.next-item:last-child{border-bottom:none;padding-bottom:0}
+.next-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--acid);line-height:1;flex-shrink:0;width:1.5rem}
+.next-text h4{font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem}
+.next-text p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.next-text a{color:var(--acid);text-decoration:none}
+
+/* CTA BUTTONS */
+.cta-group{display:flex;flex-direction:column;gap:0.75rem}
+.btn-primary{background:var(--acid);color:#000;padding:1rem 2rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;display:block;transition:opacity 0.2s;text-align:center}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{border:1px solid var(--dim);color:var(--text);padding:1rem 2rem;border-radius:2px;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:block;transition:border-color 0.2s;text-align:center}
+.btn-ghost:hover{border-color:var(--muted)}
+
+/* SHARE */
+.share-section{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.share-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.share-row{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:0.6rem 1.25rem;border:1px solid var(--border2);border-radius:2px;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:all 0.2s;cursor:pointer;background:transparent;font-family:'Inter',sans-serif}
+.share-btn:hover{border-color:var(--acid);color:var(--acid)}
+
+footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);text-align:center}
+footer p{color:var(--dim);font-size:0.72rem}
+
+@media(max-width:600px){
+  header{padding:1.25rem 1.5rem}
+  main{padding:3rem 1.5rem}
+}
+:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="bg-photo"></div>
+<div class="page">
+  <header>
+    <span class="logo">Rolling Grips</span>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="check-wrap">
+        <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+      </div>
+
+      <p class="eyebrow">You're on the list</p>
+      <h1>YOU'RE<br><em>IN.</em></h1>
+      <p class="sub">We'll email you the moment the Kickstarter campaign goes live. Early backers get the best price — and you just secured your spot at the front of the line.</p>
+
+      <div class="next-steps">
+        <p class="next-label">What happens next</p>
+        <div class="next-item">
+          <div class="next-num">1</div>
+          <div class="next-text">
+            <h4>Watch for your launch email</h4>
+            <p>When the campaign goes live you'll be the first to know — with a direct link to back the project at early-bird pricing.</p>
+          </div>
+        </div>
+        <div class="next-item">
+          <div class="next-num">2</div>
+          <div class="next-text">
+            <h4>Follow us on Kickstarter</h4>
+            <p>You can also <a href="https://www.kickstarter.com" target="_blank" rel="noopener">follow the Rolling Grips project on Kickstarter</a> now — Kickstarter will notify you automatically when we launch.</p>
+          </div>
+        </div>
+        <div class="next-item">
+          <div class="next-num">3</div>
+          <div class="next-text">
+            <h4>Follow on Instagram</h4>
+            <p>We post prototype updates, behind-the-scenes build content, and launch progress. <a href="https://www.instagram.com" target="_blank" rel="noopener">Follow @rollinggrips</a> to stay close to the build.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-group">
+        <a href="https://www.kickstarter.com" class="btn-primary" target="_blank" rel="noopener">Follow on Kickstarter — Get Notified at Launch</a>
+        <a href="rolling-grips (1).html" class="btn-ghost">Read the Full Story</a>
+      </div>
+
+      <div class="share-section">
+        <p class="share-label">Know someone who lifts? Share Rolling Grips.</p>
+        <div class="share-row">
+          <button class="share-btn" onclick="shareWhatsApp()">WhatsApp</button>
+          <button class="share-btn" onclick="shareInstagram()">Instagram</button>
+          <button class="share-btn" onclick="copyLink()">Copy Link</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Rolling Grips · Patent Pending · <a href="rolling-grips (1).html" style="color:var(--acid);text-decoration:none">rollinggrips.com</a></p>
+  </footer>
+</div>
+
+<script>
+function shareWhatsApp() {
+  const text = encodeURIComponent("Just joined the waitlist for Rolling Grips — the world's first dynamic bench press grip. Launches at $115, competitors charge $1,000+. Check it out: " + window.location.origin + '/waitlist.html');
+  window.open('https://wa.me/?text=' + text, '_blank');
+}
+function shareInstagram() {
+  copyLink();
+  alert('Link copied! Paste it in your Instagram story or bio.');
+}
+function copyLink() {
+  const url = window.location.origin + '/waitlist.html';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.querySelector('[onclick="copyLink()"]');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      btn.style.borderColor = 'var(--acid)';
+      btn.style.color = 'var(--acid)';
+      setTimeout(() => { btn.textContent = orig; btn.style.borderColor = ''; btn.style.color = ''; }, 2000);
+    });
+  }
+}
+</script>
+</body>
+</html>

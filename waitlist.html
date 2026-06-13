@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolling Grips — Join the Waitlist</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--acid:#F2C94C;--bg:#080808;--bg2:#111111;--bg3:#1A1A1A;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.15);--text:#fff;--muted:#777;--dim:#2E2E2E}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden}
+
+/* BG PHOTO */
+.bg-photo{position:fixed;inset:0;background:url('hero.jpeg') center 25% / cover no-repeat;z-index:0}
+.bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,0.97) 0%,rgba(8,8,8,0.88) 50%,rgba(8,8,8,0.75) 100%)}
+
+/* LAYOUT */
+.page{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+header{padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.14em;color:var(--acid)}
+header a{color:var(--muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color 0.2s}
+header a:hover{color:var(--text)}
+
+/* MAIN */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 2rem}
+.card{max-width:520px;width:100%;text-align:center}
+.eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--acid);margin-bottom:1.25rem}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,9vw,5.5rem);line-height:0.9;letter-spacing:0.04em;margin-bottom:1.5rem}
+h1 em{color:var(--acid);font-style:normal}
+.sub{color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:2.5rem;max-width:400px;margin-left:auto;margin-right:auto}
+
+/* FORM */
+.form-wrap{margin-bottom:1.5rem}
+.input-row{display:flex;border:1px solid var(--border2);border-radius:2px;overflow:hidden;margin-bottom:0.75rem}
+.input-row input{flex:1;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:none;outline:none;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem}
+.input-row input::placeholder{color:var(--dim)}
+.input-row button{background:var(--acid);color:#000;border:none;cursor:pointer;padding:1rem 1.75rem;font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;white-space:nowrap;transition:opacity 0.2s;flex-shrink:0}
+.input-row button:hover{opacity:0.85}
+.form-note{font-size:0.68rem;color:var(--dim);letter-spacing:0.04em}
+
+/* SOCIAL PROOF STRIP */
+.proof-strip{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-item .pv{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--acid);letter-spacing:0.04em;line-height:1}
+.proof-item .pl{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
+
+/* PLATFORM LINKS */
+.platform-row{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.platform-btn{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.25rem;border:1px solid var(--border2);border-radius:2px;text-decoration:none;color:var(--muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s}
+.platform-btn:hover{border-color:var(--acid);color:var(--acid)}
+.platform-btn svg{width:14px;height:14px;fill:currentColor}
+
+footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);text-align:center}
+footer p{color:var(--dim);font-size:0.72rem}
+
+@media(max-width:600px){
+  header{padding:1.25rem 1.5rem}
+  main{padding:3rem 1.5rem}
+  .proof-strip{gap:1.5rem}
+  .input-row{flex-direction:column}
+  .input-row button{padding:0.9rem}
+}
+:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+</style>
+</head>
+<body>
+<div class="bg-photo"></div>
+<div class="page">
+  <header>
+    <span class="logo">Rolling Grips</span>
+    <a href="rolling-grips (1).html">Full Story →</a>
+  </header>
+
+  <main>
+    <div class="card">
+      <p class="eyebrow">Patent Pending · Launching on Kickstarter</p>
+      <h1>BE THE<br>FIRST TO<br><em>TRAIN</em><br>WITH IT.</h1>
+      <p class="sub">Rolling Grips is the world's first dynamic bench press grip. Competitors charge $1,000+. We're launching at $115. Join the waitlist — get notified the moment the campaign goes live.</p>
+
+      <div class="form-wrap">
+        <label class="sr-only" for="email-input">Email address</label>
+        <div class="input-row">
+          <input type="email" id="email-input" placeholder="Your email address" autocomplete="email">
+          <button type="button" onclick="handleSignup()">Join Waitlist</button>
+        </div>
+        <p class="form-note">One email when we launch. No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <div class="proof-strip">
+        <div class="proof-item"><div class="pv">4</div><div class="pl">Years building</div></div>
+        <div class="proof-item"><div class="pv">30+</div><div class="pl">Prototypes</div></div>
+        <div class="proof-item"><div class="pv">$115</div><div class="pl">Launch price</div></div>
+        <div class="proof-item"><div class="pv">$1K+</div><div class="pl">Competitors charge</div></div>
+      </div>
+
+      <div class="platform-row">
+        <a href="https://www.kickstarter.com" class="platform-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14.8 5.6L11 12l3.8 6.4c.4.7-.1 1.6-.9 1.6H9.5c-.4 0-.7-.2-.9-.5L5 12l3.6-7.5c.2-.3.5-.5.9-.5h4.4c.8 0 1.3.9.9 1.6z"/></svg>
+          Follow on Kickstarter
+        </a>
+        <a href="https://www.instagram.com" class="platform-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Rolling Grips · Patent Pending · <a href="rolling-grips (1).html" style="color:var(--acid);text-decoration:none">Read the full story</a></p>
+  </footer>
+</div>
+
+<script>
+function handleSignup() {
+  const input = document.getElementById('email-input');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) {
+    input.style.outline = '2px solid rgba(255,80,80,0.7)';
+    input.style.borderColor = 'rgba(255,80,80,0.5)';
+    input.placeholder = 'Please enter a valid email';
+    setTimeout(() => { input.style.outline = ''; input.style.borderColor = ''; input.placeholder = 'Your email address'; }, 2000);
+    return;
+  }
+  // Store email locally and redirect to thank you page
+  localStorage.setItem('rg_email', email);
+  window.location.href = 'thankyou.html';
+}
+document.getElementById('email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleSignup();
+});
+</script>
+</body>
+</html>
